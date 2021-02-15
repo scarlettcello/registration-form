@@ -48,7 +48,7 @@
       // Connect to DB
       $mysqli = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db) 
         or die(mysqli_error($mysqli));;
-      $result = $mysqli->query("SELECT * FROM data") or die($mysqli->error);
+      $result = $mysqli->query("SELECT * FROM customer") or die($mysqli->error);
     ?>
 
     <div class="row justify-content-center m-4">
