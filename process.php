@@ -30,7 +30,7 @@ if (isset($_POST['save'])) {
 
   if ($firstName != '' && $lastName != '' && $email != '') {    
     $mysqli->query(
-      "INSERT INTO data (firstName, lastName, email, phone) 
+      "INSERT INTO customer (firstName, lastName, email, phone) 
       VALUES('$firstName', '$lastName', '$email', '$phone')") or die($mysqli->error);
     $_SESSION['message'] = 'Record has been saved!';
     $_SESSION['msg_type'] = 'success';     
@@ -41,7 +41,7 @@ if (isset($_POST['save'])) {
 
 if (isset($_GET['delete'])) {
   $id = $_GET['delete'];
-  $mysqli->query("DELETE FROM data WHERE id=$id") or die($mysqli->error);
+  $mysqli->query("DELETE FROM customer WHERE id=$id") or die($mysqli->error);
 
   $_SESSION['message'] = 'Record has been deleted!';
   $_SESSION['msg_type'] = 'danger';
@@ -52,7 +52,7 @@ if (isset($_GET['delete'])) {
 if (isset($_GET['edit'])) {
   $id = $_GET['edit'];
   $update = true;
-  $result = $mysqli->query("SELECT * FROM data WHERE id=$id") or die($mysqli->error);
+  $result = $mysqli->query("SELECT * FROM customer WHERE id=$id") or die($mysqli->error);
   
   // if (count((array)$result) == 1){
   //   $row = $result->fetch_array();
@@ -81,7 +81,7 @@ if (isset($_POST['update'])) {
 
   if ($firstName != '' && $lastName != '' && $email != '') {  
     $mysqli->query(
-      "UPDATE data SET firstName='$firstName', lastName='$lastName', email='$email', phone='$phone' 
+      "UPDATE customer SET firstName='$firstName', lastName='$lastName', email='$email', phone='$phone' 
       WHERE id=$id") or die($mysqli->error());
     $_SESSION['message'] = 'Record has been updated!';
     $_SESSION['msg_type'] = 'warning';

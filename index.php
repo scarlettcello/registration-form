@@ -34,9 +34,6 @@
   <?php endif ?>
 
   <div class="container">
-
-    
-
     <div class="row justify-content-center m-4">
       <h1>Registration Form</h1>
     </div>

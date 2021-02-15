@@ -34,11 +34,9 @@
   <?php endif ?>
 
   <div class="container-fluid">
-
     <div class="row justify-content-center m-4">
       <h1>Registered List</h1>
     </div>
-
     <div class="row p-2">
       <div class="col-sm-2"><h3>First Name</h3></div>
       <div class="col-sm-2"><h3>Last Name</h3></div>
