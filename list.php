@@ -34,9 +34,27 @@
   <?php endif ?>
 
   <div class="container-fluid">
+
+    <?php
+      //Get Heroku ClearDB connection information
+      $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+      $cleardb_server = $cleardb_url["host"];
+      $cleardb_username = $cleardb_url["user"];
+      $cleardb_password = $cleardb_url["pass"];
+      $cleardb_db = substr($cleardb_url["path"],1);
+      $active_group = 'default';
+      $query_builder = TRUE;
+
+      // Connect to DB
+      $mysqli = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db) 
+        or die(mysqli_error($mysqli));;
+      $result = $mysqli->query("SELECT * FROM data") or die($mysqli->error);
+    ?>
+
     <div class="row justify-content-center m-4">
       <h1>Registered List</h1>
     </div>
+
     <div class="row p-2">
       <div class="col-sm-2"><h3>First Name</h3></div>
       <div class="col-sm-2"><h3>Last Name</h3></div>
