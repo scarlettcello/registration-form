@@ -35,12 +35,6 @@
 
   <div class="container-fluid">
 
-    <?php
-      $mysqli = new mysqli('localhost', 'root', '', 'customer') or die(mysqli_error($mysqli));
-      $result = $mysqli->query("SELECT * FROM data") or die($mysqli->error);
-      //pre_r($result);
-    ?>
-
     <div class="row justify-content-center m-4">
       <h1>Registered List</h1>
     </div>

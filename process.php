@@ -31,7 +31,7 @@ if (isset($_POST['save'])) {
   if ($firstName != '' && $lastName != '' && $email != '') {    
     $mysqli->query(
       "INSERT INTO data (firstName, lastName, email, phone) 
-      VALUES('$firstName', '$lastName', '$email', '$phone')") or die($mysqli->error());
+      VALUES('$firstName', '$lastName', '$email', '$phone')") or die($mysqli->error);
     $_SESSION['message'] = 'Record has been saved!';
     $_SESSION['msg_type'] = 'success';     
   } 
@@ -41,7 +41,7 @@ if (isset($_POST['save'])) {
 
 if (isset($_GET['delete'])) {
   $id = $_GET['delete'];
-  $mysqli->query("DELETE FROM data WHERE id=$id") or die($mysqli->error());
+  $mysqli->query("DELETE FROM data WHERE id=$id") or die($mysqli->error);
 
   $_SESSION['message'] = 'Record has been deleted!';
   $_SESSION['msg_type'] = 'danger';
@@ -52,7 +52,7 @@ if (isset($_GET['delete'])) {
 if (isset($_GET['edit'])) {
   $id = $_GET['edit'];
   $update = true;
-  $result = $mysqli->query("SELECT * FROM data WHERE id=$id") or die($mysqli->error());
+  $result = $mysqli->query("SELECT * FROM data WHERE id=$id") or die($mysqli->error);
   
   // if (count((array)$result) == 1){
   //   $row = $result->fetch_array();
